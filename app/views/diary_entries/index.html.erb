@@ -1,0 +1,24 @@
+<h1>Hello from a Rails View</h1>
+
+<p>I have <%= @diary_entries.length %> entries</p>
+
+<p> I have <%= @diary_entries_positive.length %> positive entry</p>
+
+<ol>
+	<li><% @diary_entries.each do |d| %>
+	<%= d.title %>
+	<% end %></li>
+</ol>
+
+<% @diary_entries.each do |d| %>
+<%= d.description %>
+<% end %>
+
+
+<% @diary_entries.each do |d| %>
+	<% if d.mood == "happy" || d.mood == "joyful" %>
+		<div style='color: green'><%= d.mood %></div>
+	<% else %>
+		<div><%= d.mood %></div>
+	<% end %>
+<% end %>
