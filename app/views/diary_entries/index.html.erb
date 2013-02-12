@@ -1,6 +1,28 @@
-<h1>Hello from a Rails View</h1>
+<div class="container">
+	<div class="page-header">
+	<h2>Michelle's Diary</h2>
+	</div>
 
-<p>I have <%= @diary_entries.length %> entries</p>
+
+<table class="table">
+	<td>#</td>
+	<td>Title</td>
+	<td>Description</td>
+	<td>Mood</td>
+
+<% @diary_entries.each do |d| %>
+	<tr>
+		<td><%= d.id %></td>
+		<td><%= d.title%></td>
+		<td><%= d.description %></td>
+		<td><%= d.mood%></td>
+	</tr>
+
+	<% end %>
+</table>
+</div>
+
+<!--<p>I have <%= @diary_entries.length %> entries</p>
 
 <p> I have <%= @diary_entries_positive.length %> positive entry</p>
 
@@ -21,4 +43,10 @@
 	<% else %>
 		<div><%= d.mood %></div>
 	<% end %>
-<% end %>
+<% end %> -->
+
+<p><button class="btn btn-info" type="button">
+<%= link_to 'New Diary Entry', new_diary_entry_path %>
+
+</button></p>
+
