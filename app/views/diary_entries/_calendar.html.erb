@@ -1,0 +1,24 @@
+<h2><%= Time.zone.now.strftime("%B %Y") %></h2>
+
+<table>
+<% (Time.zone.now.to_date.beginning_of_month.beginning_of_week..Time.zone.now.to_date.end_of_month.end_of_week).each do |date| %>
+	<% if date.monday? %>
+		<tr>
+	<% end %>
+
+	
+
+	
+	<td class = 'span1'>
+		<%= link_to date.day, diary_entries_path(day: date) %>
+		<% if @dates.include?(date) %>
+			check
+		<% end %>
+	</td>
+
+<% end %>
+
+<td class = 'span2'><%= link_to "Previous Month", diary_entries_path(day: Time.zone.now - 1.month) %></td>
+<td class = 'span2'><%= link_to "Next Month", diary_entries_path(day: Time.zone.now + 1.month) %></td>
+
+</table>
