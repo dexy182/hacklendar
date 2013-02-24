@@ -2,7 +2,7 @@ class DiaryEntry < ActiveRecord::Base
 	attr_accessible :title, :description, :mood
 
 	def self.positive
-		where(mood: "happy")
+		where(mood: ["happy", "joyful"])
 	end
 
 	validates :description, presence: true

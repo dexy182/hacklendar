@@ -11,3 +11,53 @@
  *= require_self
  *= require_tree .
  */
+
+h2 {
+	text-align: center;
+}
+
+.container {
+	font-family: Papyrus, fantasy;
+	text-align: center;
+	margin-top: 100px;
+	text-decoration: underline;
+}
+
+body {
+	background: green;
+}
+
+td {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.header {
+	text-align: center;
+	font-family: "Brush Script MT", cursive;
+	font-size: 50px;
+	border: 2px solid black;
+	background: #79A888;
+	padding: 10px;
+}
+
+.calendar {
+	padding-top: 20px;
+}
+
+.diary {
+	padding-top: 50px;
+}
+
+.links {
+	float: right;
+	padding-right: 15px;
+	font-size: 18px;
+}
+
+.button {
+	padding-top: 30px;
+}
+
+
+

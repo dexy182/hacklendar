@@ -1,8 +1,15 @@
 class DiaryEntriesController < ApplicationController
 
 	def index
-		@diary_entries = DiaryEntry.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-		@all_entries = DiaryEntry.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+		if params[:day]
+			@day = params[:day].to_date
+		else
+			@day = Date.today
+		end
+
+		@diary_entries = DiaryEntry.where(created_at: @day.beginning_of_day..@day.end_of_day)
+
+		@all_entries = DiaryEntry.where(created_at: @day.beginning_of_month..@day.end_of_month)
 		
 		@dates = @all_entries.map do |i|
 			i.created_at.to_date

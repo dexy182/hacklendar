@@ -1,28 +1,41 @@
-<%= render "calendar" %>
+<!DOCTYPE HTML>
+<html lang="en-US">
 
-<div class="container">
-	<div class="page-header">
-	<h2>Michelle's Diary</h2>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Snowburst+One' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div class="header">
+		<h1>Michelle's Hacklendar</h1>
 	</div>
 
+	<div class="calendar">
+		<%= render "calendar" %>
+	</div>
+	
 
-<table class="table">
-	<td>#</td>
-	<td>Title</td>
-	<td>Description</td>
-	<td>Mood</td>
-
-<% @diary_entries.each do |d| %>
-	<tr>
-		<td><%= d.id %></td>
-		<td><%= d.title%></td>
-		<td><%= d.description %></td>
-		<td><%= d.mood%></td>
-	</tr>
-
-	<% end %>
-</table>
+<div class="container">
+<h3>Daily Log</h3>
 </div>
+	<table class="table">
+		<td>Title</td>
+		<td>Description</td>
+		<td>Mood</td>
+
+	<% @diary_entries.each do |d| %>
+		<tr>
+			<td><%= d.title%></td>
+			<td><%= d.description %></td>
+			<td><%= d.mood%></td>
+		</tr>
+
+		<% end %>
+	</table>
+</div>
+
+</body>
+
 
 <!--<p>I have <%= @diary_entries.length %> entries</p>
 
@@ -40,20 +53,21 @@
 
 
 <% @diary_entries.each do |d| %>
-	<% if d.mood == "happy" || d.mood == "joyful" %>
+	<% if d.mood == "Happy" || d.mood == "Joyful" %>
 		<div style='color: green'><%= d.mood %></div>
 	<% else %>
 		<div><%= d.mood %></div>
 	<% end %>
 <% end %> -->
 
+<div class="links">
+<%= link_to "Previous Day", diary_entries_path(day: @day - 1.day) %>&#8596;
+<%= link_to "Next Day", diary_entries_path(day: @day + 1.day) %>
+</div>
+
+
 <p><button class="btn btn-info" type="button">
-<%= link_to 'New Diary Entry', new_diary_entry_path %>
+<%= link_to 'New Entry', new_diary_entry_path %>
 </button></p>
-
-<%= link_to "Previous Day", diary_entries_path(day: Time.zone.now - 1.day) %>
-<%= link_to "Next Day", diary_entries_path(day: Time.zone.now + 1.day) %>
-
-
 
 
